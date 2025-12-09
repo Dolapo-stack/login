@@ -1,0 +1,8 @@
+.formContainer{
+    display: flex;
+}
+
+.formRight{
+    background-color: blueviolet;
+    height: 100vh;
+}
