@@ -29,8 +29,8 @@ const Register = () => {
   };
 
   return (
-    <div className="formContainer">
-      <div className="form">
+    <div className="flex min-h-screen">
+      <div className="w-1/2">
         <Formik
           initialValues={initialValues}
           onSubmit={handleSubmit}
@@ -40,7 +40,7 @@ const Register = () => {
             <h1>Register</h1>
             <div className="email">
               <label htmlFor="name">Name</label>
-              <Field name="name" type="text" cl/>
+              <Field name="name" type="text" cl />
               <ErrorMessage name="name" />
             </div>
 
@@ -63,7 +63,14 @@ const Register = () => {
           </Form>
         </Formik>
       </div>
-      <div className="formRight"></div>
+      <div className="bg-purple-700  text-white w-1/2">
+        <div>
+          <h1 className="text-4xl font-bold mb-4">Welcome Back!</h1>
+          <p className="text-lg opacity-90">
+            Log in to continue to your dashboard.
+          </p>
+        </div>  
+      </div>
     </div>
   );
 };
