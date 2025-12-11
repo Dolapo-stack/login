@@ -25,34 +25,39 @@ const Dashboard = () => {
   return (
     <div className="flex flex-wrap gap-8 p-8 justify-center">
       {news.map((item) => (
-        <div className="rounded-xl w-[400px] shadow-md" key={item.id}>
-          <div className="relative">
+        <div
+          className="rounded-t-xl w-[400px] shadow-md bg-white flex flex-col min-h-[600px]"
+          key={item.id}
+        >
+          <div className="relative h-60 overflow-hidden">
             <img
               src={
                 item.urlToImage ||
                 "https://via.placeholder.com/400x300?text=No+Image"
               }
               alt="newsImage"
-              className="rounded-xl"
+              className="rounded-xl w-full h-60 object-cover shadow-md"
             />
-            <h3 className="absolute top-8 left-8 bg-red-600 text-white rounded-sm font-bold px-2">
+            <h3 className="absolute top-4 left-4 bg-red-600 text-white rounded-sm font-bold px-2 shadow-md">
               NEWS
             </h3>
           </div>
-          <div className="p-6 space-y-5">
+          <div className="p-6 flex flex-col flex-1">
             <p className="text-gray-500 font-bold">
               {new Date(item.publishedAt)
                 .toLocaleDateString("en-GB")
                 .replace(/\//g, ".")}
             </p>
             <div className="title">
-              <h1 className="text-3xl font-bold"> {item.title}</h1>
+              <h1 className="text-2xl font-bold mt-2"> {item.title}</h1>
             </div>
             <div className="description">
-              <p className="text-xl text-gray-500">{item.description}</p>
+              <p className="text-gray-500 text-base mt-2 flex-1">
+                {item.description}
+              </p>
             </div>
             <div className="readMore">
-              <p className="text-blue-400 text-2xl">
+              <p className=" text-blue-500 text-lg mt-auto">
                 <Link to={item.url}>Read more ...</Link>
               </p>
             </div>
