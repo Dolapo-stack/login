@@ -1,30 +1,39 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 import { getNews } from "../services/api";
 import { Link } from "react-router-dom";
 
-const Dashboard = () => {
-  const[news, setNews] = useState([]);
-  const[loading, setLoading] = useState(false);
+interface INews {
+  id: string;
+  urlToImage: string;
+  publishedAt: string;
+  title: string;
+  description: string;
+  url: string;
+}
 
-  const displayNews = async () => {
-    try {
-      setLoading(true); 
-      const response = await getNews();
-      console.log(response.data.articles);
-      setNews(response.data.articles);
-    } catch (error) {
-      throw error;
-    }
-    finally {
-      setLoading(false);
-    }
-  };
-  useEffect(() => {
-    displayNews()
-  }, []);
+const Dashboard = () => {
+  // const [news, setNews] = useState<INews[]>([]);
+  // const [loading, setLoading] = useState(false);
+
+  // const displayNews = async () => {
+  //   try {
+  //     setLoading(true);
+  //     const response = await getNews();
+  //     console.log(response.data.articles);
+  //     setNews(response.data.articles);
+  //   } catch (error) {
+  //     throw error;
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+  // useEffect(() => {
+  //   displayNews();
+  // }, []);
   return (
     <div className="flex flex-wrap gap-8 p-8 justify-center">
-      {news.map((item) => (
+      <h1>Dashboard</h1>
+      {/* {news.map((item) => (
         <div
           className="rounded-t-xl w-[400px] shadow-md bg-white flex flex-col min-h-[600px]"
           key={item.id}
@@ -63,9 +72,9 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-      ))}
+      ))} */}
     </div>
   );
-}
+};
 
-export default Dashboard
+export default Dashboard;
